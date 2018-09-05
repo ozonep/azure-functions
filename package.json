@@ -12,9 +12,9 @@
   "author": "ozonep",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.0",
     "cuid": "^2.1.4",
     "decomment": "^0.9.2",
+    "hash-sum": "^1.0.2",
     "joi": "^13.6.0",
     "pg-promise": "^8.4.6",
     "string-hash": "^1.1.3"

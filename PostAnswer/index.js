@@ -1,9 +1,9 @@
-const bcrypt = require('bcrypt');
 const Joi = require('joi');
 const decomment = require('decomment');
 const cuid = require('cuid');
 const pgp = require('pg-promise')();
 const stringHash = require('string-hash');
+const sum = require('hash-sum');
 
 const cn = {
     host: process.env.PostgresDBHost, // default: localhost
@@ -37,7 +37,7 @@ module.exports = function (context, req) {
         }
         const noCommentsAnswer = decomment(req.body.answer);
         const normalizedAnswer = noCommentsAnswer.replace(/\s+/g, ' ').trim();
-        const hashedAnswer = stringHash(normalizedAnswer);
+        const hashedAnswer = sum(normalizedAnswer);
         db.tx(t => t.batch([
             t.none('INSERT INTO student_answers (answer_id, user_id, answer) VALUES ($1, $2, $3)', [uniqueId, req.body.userId, req.body.answer]),
             t.none('INSERT INTO answers (id, normalized_answer, hash, exercise_id) VALUES ($1, $2, $3, $4)', [uniqueId, normalizedAnswer, hashedAnswer, req.body.exerciseId]),
