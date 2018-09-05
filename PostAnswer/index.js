@@ -6,7 +6,7 @@ const sum = require('hash-sum');
 
 const cn = {
     host: process.env.PostgresDBHost, // default: localhost
-    port: process.env.PostgresDBPOrt, // default: 5432
+    port: process.env.PostgresDBPort, // default: 5432
     database: process.env.PostgresDB,
     user: process.env.PostgresBDUser,
     password: process.env.PostgresDBPassword,
