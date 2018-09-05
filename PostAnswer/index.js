@@ -2,7 +2,6 @@ const Joi = require('joi');
 const decomment = require('decomment');
 const cuid = require('cuid');
 const pgp = require('pg-promise')();
-const stringHash = require('string-hash');
 const sum = require('hash-sum');
 
 const cn = {
@@ -11,7 +10,7 @@ const cn = {
     database: process.env.PostgresDB,
     user: process.env.PostgresBDUser,
     password: process.env.PostgresDBPassword,
-    ssl: false,
+    ssl: true,
 };
 const db = pgp(cn);
 
