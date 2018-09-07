@@ -5,8 +5,8 @@ const pgp = require('pg-promise')();
 const sum = require('hash-sum');
 
 const cn = {
-    host: process.env.PostgresDBHost, // default: localhost
-    port: process.env.PostgresDBPort, // default: 5432
+    host: process.env.PostgresDBHost, 
+    port: process.env.PostgresDBPort, 
     database: process.env.PostgresDB,
     user: process.env.PostgresBDUser,
     password: process.env.PostgresDBPassword,

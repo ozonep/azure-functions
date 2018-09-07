@@ -6,7 +6,7 @@ const cn = {
     database: process.env.PostgresDB,
     user: process.env.PostgresBDUser,
     password: process.env.PostgresDBPassword,
-    ssl: false,
+    ssl: true,
 };
 const db = pgp(cn);
 
